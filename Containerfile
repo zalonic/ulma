@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite:stable
+FROM quay.io/almalinuxorg/almalinux-bootc:10@sha256:598d91567895ec4d28bc8b38b4e62c9b84b2c04cc2c4dcda5088a8c6840a83e2
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
