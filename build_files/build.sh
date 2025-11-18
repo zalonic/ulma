@@ -45,7 +45,6 @@ dnf -y install \
     -x gnome-extensions-app \
     -x gnome-software \
     "NetworkManager-adsl" \
-    "centos-backgrounds" \
     "gdm" \
     "gnome-bluetooth" \
     "gnome-color-manager" \
