@@ -22,3 +22,61 @@ set -ouex pipefail
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
+dnf group install -y --nobest \
+    -x rsyslog* \
+    -x cockpit \
+    -x cronie* \
+    -x crontabs \
+    -x PackageKit \
+    -x PackageKit-command-not-found \
+    "Common NetworkManager submodules" \
+    "Core" \
+    "Fonts" \
+    "Guest Desktop Agents" \
+    "Hardware Support" \
+    "Printing Client" \
+    "Standard" \
+    "Workstation product core"
+
+dnf -y install \
+    -x PackageKit \
+    -x PackageKit-command-not-found \
+    -x gnome-software-fedora-langpacks \
+    -x gnome-extensions-app \
+    -x gnome-software \
+    "NetworkManager-adsl" \
+    "centos-backgrounds" \
+    "gdm" \
+    "gnome-bluetooth" \
+    "gnome-color-manager" \
+    "gnome-control-center" \
+    "gnome-initial-setup" \
+    "gnome-remote-desktop" \
+    "gnome-session-wayland-session" \
+    "gnome-settings-daemon" \
+    "gnome-shell" \
+    "gnome-user-docs" \
+    "gvfs-fuse" \
+    "gvfs-goa" \
+    "gvfs-gphoto2" \
+    "gvfs-mtp" \
+    "gvfs-smb" \
+    "libsane-hpaio" \
+    "nautilus" \
+    "orca" \
+    "ptyxis" \
+    "sane-backends-drivers-scanners" \
+    "xdg-desktop-portal-gnome" \
+    "xdg-user-dirs-gtk" \
+    "yelp-tools"
+
+dnf -y install \
+    plymouth \
+    plymouth-system-theme \
+    fwupd \
+    systemd-{resolved,container,oomd} \
+    libcamera{,-{v4l2,gstreamer,tools}}
+
+systemctl enable gdm
+
+systemctl set-default graphical.target
